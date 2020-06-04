@@ -7,7 +7,7 @@
     "server": "node backend/index.js",
     "client": "npm run start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "backend/index.js",
+    "start": "node backend/index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
