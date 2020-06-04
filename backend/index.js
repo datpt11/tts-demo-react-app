@@ -1,19 +1,17 @@
 var express = require('express');
-var path = require('path');
+
 var jwt = require('jsonwebtoken');
 var cookieParser = require('cookie-parser');
 var MongoClient = require('mongodb').MongoClient;
 var cors = require('cors');
 var app = express();
-app.use(express.static(path.join(__dirname, 'build')));
+
 app.use(cors());
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser('23jh2jk1h32k1'));
 const port = 8080;
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+
 app.get('/items', (req, res) => {
   MongoClient.connect(
     'mongodb://localhost:27017/youtube-db',
